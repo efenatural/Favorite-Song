@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Song</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-container {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .animation-container {
+            margin-top: 50px;
+        }
+
+        #animated-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff5733;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <h1>My Favorite Song</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xpVfcZ0ZcFM" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+    
+    <div class="animation-container">
+        <div id="animated-box"></div>
+    </div>
+
+    <script>
+        // JavaScript to animate the box
+        let box = document.getElementById('animated-box');
+        let position = 0;
+        let direction = 1;
+
+        function animate() {
+            position += direction;
+            if (position > 300 || position < 0) {
+                direction *= -1;
+            }
+            box.style.top = position + 'px';
+            box.style.left = position + 'px';
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
